@@ -70,10 +70,9 @@
 ;; Launcher on (nav + P)
 (defalias run M-l)
 
-;; Qwerty/Colemak macOS aliases
+;; macOS aliases
 
 (defalias
-
   all M-a
   sav M-s
   cls M-w
@@ -81,33 +80,6 @@
   cut M-x
   cpy M-c
   pst M-v
-
-  0 0
-  1 1
-  2 2
-  3 3
-  4 4
-  5 5
-  6 6
-  7 7
-  8 8
-  9 9
-  , ,
-  . .
-)
-
-(defalias
-
-  s0 S-0
-  s1 S-1
-  s2 S-2
-  s3 S-3
-  s4 S-4
-  s5 S-5
-  s6 S-6
-  s7 S-7
-  s8 S-8
-  s9 S-9
 )
 
 (defvar
