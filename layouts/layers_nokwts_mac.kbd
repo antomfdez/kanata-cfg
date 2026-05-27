@@ -32,6 +32,7 @@
   lr  M-right
   bck M-[
   fwd M-]
+  run M-l
 )
 
 (deflayer navigation
@@ -90,21 +91,6 @@
   (lsft 8) (8)
   (lsft 9) (9)
   (lsft 0) (0)
-)
-
-;; Launcher on (nav + P)
-(defalias run M-l)
-
-;; macOS aliases
-
-(defalias
-  all M-a
-  sav M-s
-  cls M-w
-  ndo M-z
-  cut M-x
-  cpy M-c
-  pst M-v
 )
 
 (defcfg
