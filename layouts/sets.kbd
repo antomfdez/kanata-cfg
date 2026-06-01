@@ -1,0 +1,8 @@
+(defsrc)
+(deflayermap (base-layer)
+    caps lctrl)
+
+(defcfg
+    process-unmapped-keys yes
+    windows-altgr cancel-lctl-press
+)
