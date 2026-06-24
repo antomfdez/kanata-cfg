@@ -1,0 +1,76 @@
+(defcfg
+    process-unmapped-keys yes ;; so that repeat rules work for unmapped keys
+)
+
+(defvar
+  tap-time  150
+  hold-time 150
+)
+
+(defsrc
+      1 2 3 4 5  6 7 8 9 0 - =
+       q w e r t  y u i o p [ ]
+   caps a s d f g  h j k l ; '
+    lsft z x c v b  n m , . / rsft
+                spc rmet
+)
+
+(deflayer hours
+      _ _ _ _ _  _ = 7 8 9 0 -
+       k @* f y w  [ q j u o . / 
+@navab  t m s d g  ] x r i a h
+       _ z v p c b ; l n , ' _
+                   _ e
+)
+
+(deflayer nav
+      _ _ _ _ _  _ _ _ _ _ _ _
+       _ S-5 S-6 S-7 S-8   _   _  @{ ↑ @} _ _ 
+_       _ S-1 S-2 S-3 S-4   _  C-u  ← ↓ →  esc
+    _    _ _ S-0 S-9 _       @~ C-d [ @v ]   _
+                   lalt A-lsft
+)
+
+(defalias *
+    (switch
+        ((key-history n 1)) l break
+        ((key-history r 1)) n break
+        ((key-history u 1)) ' break
+        ((key-history y 1)) s break
+        () rpt break
+    )
+    { S-[
+    } S-]
+    ~ S-`
+    v (macro S-; w ret)
+    navab (tap-hold $tap-time $hold-time A-bspc (layer-while-held nav))
+)
+
+(defoverrides
+    (/) (lsft /)
+    (lsft /) (/)
+
+    (1) (lsft 1)
+    (2) (lsft 2)
+    (3) (lsft 3)
+    (4) (lsft 4)
+    (5) (lsft 5)
+    (6) (lsft 6)
+    (7) (lsft 7)
+    (8) (lsft 8)
+    (9) (lsft 9)
+    (0) (lsft 0)
+
+    (lsft 1) (1) (rsft 1) (1)
+    (lsft 2) (2) (rsft 2) (2)
+    (lsft 3) (3) (rsft 3) (3)
+    (lsft 4) (4) (rsft 4) (4)
+    (lsft 5) (5) (rsft 5) (5)
+    (lsft 6) (6) (rsft 6) (6)
+    (lsft 7) (7) (rsft 7) (7)
+    (lsft 8) (8) (rsft 8) (8)
+    (lsft 9) (9) (rsft 9) (9)
+    (lsft 0) (0) (rsft 0) (0)
+)
+
+;; vim: set ft=lisp:
