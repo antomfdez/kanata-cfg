@@ -8,27 +8,37 @@
 )
 
 (defsrc
+`
       1 2 3 4 5  6 7 8 9 0 - =
        q w e r t  y u i o p [ ]
    caps a s d f g  h j k l ; '
     lsft z x c v b  n m , . / rsft
-                spc rmet
+        lmet lalt spc ralt
 )
 
-(deflayer hours
+(deflayer hours (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
       _ _ _ _ _  _ = 7 8 9 0 -
-       k @* f y w  [ q j u o . / 
-@navab  t m s d g  ] x r i a h
+      k @* f @y w  [ q j u o . / 
+@navab  t m s d @g  ] x r i a h
        _ z v p c b ; l n , ' _
-                   _ e
+            lalt lmet _ e
 )
 
 (deflayer nav
-      _ _ _ _ _  _ _ _ _ _ _ _
+     _ _ _ _ _ _  _ _ _ _ _ _ _
        _ S-5 S-6 S-7 S-8   _   =  @{ ↑ @} + _ 
-_       _ S-1 S-2 S-3 S-4   _  C-u  ← ↓ →  esc
-    _    _ _ S-0 S-9 _       @~ C-d [ @v ]   _
-                   lalt A-lsft
+_     ret S-1 S-2 S-3 S-4   _  C-u  ← ↓ →  esc
+    _       _ _ S-0 S-9 _    @~ C-d [ @v ]   _
+                  _ _ lalt A-lsft
+)
+
+(defalias `
+    (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
+)
+
+(deflayermap (qwerty)
+  ` (tap-hold $tap-time $hold-time ` (layer-switch hours))
+  _ use-defsrc
 )
 
 (defalias *
@@ -39,6 +49,8 @@ _       _ S-1 S-2 S-3 S-4   _  C-u  ← ↓ →  esc
         ((key-history y 1)) s break
         () rpt break
     )
+    g (switch ((key-history b 1)) y break () g break)
+    y (switch ((key-history b 1)) g break () y break)
     { S-[
     } S-]
     ~ S-`
