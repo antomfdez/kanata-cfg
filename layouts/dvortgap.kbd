@@ -1,5 +1,5 @@
 (defcfg
-    process-unmapped-keys yes ;; so that repeat rules work for unmapped keys
+    process-unmapped-keys yes
 )
 
 (defvar
@@ -42,11 +42,13 @@ _     ret S-1 S-2 S-3 S-4   C-u  ← ↓ →  esc _
 )
 
 (defalias
+    v (macro S-; w ret)
+    navab (tap-hold $tap-time $hold-time A-bspc (layer-while-held nav))
     { S-[
     } S-]
     ~ S-`
-    v (macro S-; w ret)
-    navab (tap-hold $tap-time $hold-time A-bspc (layer-while-held nav))
+    _ S--
+
 )
 
 (defoverrides
