@@ -13,7 +13,7 @@
        q w e r t  y u i o p [ ]
    caps a s d f g  h j k l ; '
     lsft z x c v b  n m , . / rsft
-        lmet lalt spc ralt
+        lmet lalt spc ralt rmet
 )
 
 (deflayer dvortgap (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
@@ -21,7 +21,7 @@
        / u o y j  k d l c w x = 
 @navab  a i e n p  m h t s r -
        _ , ; ' .  q b f g v z  _
-        lalt lmet _ _
+        lalt lmet _ rmet ralt
 )
 
 (deflayer nav
@@ -29,7 +29,7 @@
        _ S-5 S-6 S-7 S-8  prev @{ ↑ @} next _ _ 
 _     ret S-1 S-2 S-3 S-4   C-u  ← ↓ →  esc _
     _       _ pp S-0 S-9   @~ C-d [ @v ]   _  _
-                  _ _ lalt A-lsft
+                  _ _ lalt lsft _
 )
 
 (defalias `
