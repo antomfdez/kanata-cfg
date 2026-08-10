@@ -10,7 +10,7 @@
 (defsrc
 `
       1 2 3 4 5  6 7 8 9 0 - =
-       q w e r t  y u i o p [ ]
+   tab q w e r t  y u i o p [ ]
    caps a s d f g  h j k l ; '
     lsft z x c v b  n m , . / rsft
         lmet lalt spc ralt rmet
@@ -18,7 +18,7 @@
 
 (deflayer dvortgap (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
       _ _ _ _ _  _ _ _ _ _ [ ]
-       / u o y j  k d l c w x = 
+@tabnu / u o y j  k d l c w x = 
 @navab  a i e n p  m h t s r -
        _ , ; ' .  q b f g v z  _
         lalt lmet _ rmet ralt
@@ -26,10 +26,18 @@
 
 (deflayer nav
      _ _ _ _ _ _  _ _ _ _ _ _ _
-       _ S-5 S-6 S-7 S-8  prev @{ ↑ @} next _ _ 
-_     ret S-1 S-2 S-3 S-4   C-u  ← ↓ →  esc _
-    _       _ pp S-0 S-9   @~ C-d [ @v ]   _  _
-                  _ _ lalt lsft _
+_      _ _ _ _ _  prev @{ ↑ @} next _ _ 
+_     ret _ _ _ _   C-u  ← ↓ →  esc _
+    _   _ _ _ _   @~ C-d [ @v ]   _  _
+            _ _ lalt lsft _
+)
+
+(deflayer numpad
+     _ _ _ _ _ _  _ nlk  /   8 _ _ _
+_      _ _ _ _ _   _ S-7 S-8 S-9 - _ _ 
+_       _ _ _ _ _   6 S-4 S-5 S-6 @+ _
+    _    _ _ _ _   _ _ S-1 S-2 S-3 ret  _
+                  _ _ S-0 . _
 )
 
 (defalias `
@@ -42,13 +50,14 @@ _     ret S-1 S-2 S-3 S-4   C-u  ← ↓ →  esc _
 )
 
 (defalias
-    v (macro S-; w ret)
     navab (tap-hold $tap-time $hold-time A-bspc (layer-while-held nav))
+    tabnu (tap-hold $tap-time $hold-time tab (layer-while-held numpad))
+    v (macro S-; w ret)
     { S-[
     } S-]
     ~ S-`
     _ S--
-
+    + S-=
 )
 
 (defoverrides
