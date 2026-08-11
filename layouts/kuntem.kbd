@@ -16,11 +16,11 @@
         lalt lmet spc rmet ralt
 )
 
-(deflayer dvortgap (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
-      _ _ _ _ _  _ _ _ _ _ [ ]
-@tabnu / u o y j  k d l c w x = 
-@navab  a i e n p  m h t s r -
-       _ , ; ' .  q b f g v z  _
+(deflayer kuntem (tap-hold $tap-time $hold-time ` (layer-switch qwerty))
+      _ _ _ _ _  _ _ _ _ _ _ _
+@tabnu v l n d k  j w o u q _ _ 
+@navab  t s r h f  g c a i e ;
+       _ z x p b '  m y . , _  _
              _ _ _ _ _
 )
 
@@ -45,7 +45,7 @@ _       _ _ _ _ _   6 S-4 S-5 S-6 @+ _
 )
 
 (deflayermap (qwerty)
-  ` (tap-hold $tap-time $hold-time ` (layer-switch dvortgap))
+  ` (tap-hold $tap-time $hold-time ` (layer-switch kuntem))
   _ use-defsrc
 )
 
